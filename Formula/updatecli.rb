@@ -5,33 +5,33 @@
 class Updatecli < Formula
   desc "Continuously update everything."
   homepage "https://updatecli.io/"
-  version "0.9.0"
+  version "0.10.0"
   license "MIT"
   bottle :unneeded
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/updatecli/updatecli/releases/download/v0.9.0/updatecli_Darwin_arm64.tar.gz"
-      sha256 "ee55ee8e3fed8e7b061d1a30a74d78f632b799e7ece63cefa9f1cc6a4ae5fc2b"
+      url "https://github.com/updatecli/updatecli/releases/download/v0.10.0/updatecli_Darwin_arm64.tar.gz"
+      sha256 "c2f217b28030f57046573ca8bc99866f9461827e1c94b38d4c8c3ee224ee29f5"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/updatecli/updatecli/releases/download/v0.9.0/updatecli_Darwin_x86_64.tar.gz"
-      sha256 "acc3fb14d60d0d3dd1eece0345c73a870181eccf62f9cd160cf92a9de8b1a65c"
+      url "https://github.com/updatecli/updatecli/releases/download/v0.10.0/updatecli_Darwin_x86_64.tar.gz"
+      sha256 "47db6a681bb3b23bcbff740615a5bec108f27cedc836710d30aab6db9a5fc33d"
     end
   end
 
   on_linux do
-    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/updatecli/updatecli/releases/download/v0.9.0/updatecli_Linux_armv6.tar.gz"
-      sha256 "b2ce13cbeb72e1ea18c77fcab8115545921fb012aa62f08d62687d83dc1bbf89"
-    end
     if Hardware::CPU.intel?
-      url "https://github.com/updatecli/updatecli/releases/download/v0.9.0/updatecli_Linux_x86_64.tar.gz"
-      sha256 "5ea314ffccaabade2032f94cdae4b5df69ceafcdcc366ffdeeab8fdfb1533f99"
+      url "https://github.com/updatecli/updatecli/releases/download/v0.10.0/updatecli_Linux_x86_64.tar.gz"
+      sha256 "1f97bfd472be1af4e1a6f2e69b685f0d2a6e291b58176b3b50e71a70f4aa9544"
+    end
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/updatecli/updatecli/releases/download/v0.10.0/updatecli_Linux_armv6.tar.gz"
+      sha256 "c8cab5ebe4056257526d7a10ed5b3fef527af417d4692c3d3f9b486e2c9f2353"
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/updatecli/updatecli/releases/download/v0.9.0/updatecli_Linux_arm64.tar.gz"
-      sha256 "a3a3ec698e2f3d0c350691dfc51681bcaefe1b3c03bd6d2a34600ac0fda3dc82"
+      url "https://github.com/updatecli/updatecli/releases/download/v0.10.0/updatecli_Linux_arm64.tar.gz"
+      sha256 "5b801e18b0eaab558a417aee2bb762055c27268b51ef66ce9dba69882561d8ae"
     end
   end
 
