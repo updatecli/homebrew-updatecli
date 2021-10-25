@@ -5,38 +5,53 @@
 class Updatecli < Formula
   desc "Continuously update everything."
   homepage "https://updatecli.io/"
-  version "0.10.0"
+  version "0.11.0"
   license "MIT"
-  bottle :unneeded
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/updatecli/updatecli/releases/download/v0.10.0/updatecli_Darwin_arm64.tar.gz"
-      sha256 "c2f217b28030f57046573ca8bc99866f9461827e1c94b38d4c8c3ee224ee29f5"
+      url "https://github.com/updatecli/updatecli/releases/download/v0.11.0/updatecli_Darwin_arm64.tar.gz"
+      sha256 "5ac298c4c0e0c26270dcce3832490839560bc245749c7ad9f99f788c09cfe011"
+
+      def install
+        bin.install "updatecli"
+      end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/updatecli/updatecli/releases/download/v0.10.0/updatecli_Darwin_x86_64.tar.gz"
-      sha256 "47db6a681bb3b23bcbff740615a5bec108f27cedc836710d30aab6db9a5fc33d"
+      url "https://github.com/updatecli/updatecli/releases/download/v0.11.0/updatecli_Darwin_x86_64.tar.gz"
+      sha256 "abb9624c900602d75f6ddd3b900eb84dd18e4e8545a754a9269742c9b4b3018c"
+
+      def install
+        bin.install "updatecli"
+      end
     end
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/updatecli/updatecli/releases/download/v0.10.0/updatecli_Linux_x86_64.tar.gz"
-      sha256 "1f97bfd472be1af4e1a6f2e69b685f0d2a6e291b58176b3b50e71a70f4aa9544"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/updatecli/updatecli/releases/download/v0.11.0/updatecli_Linux_arm64.tar.gz"
+      sha256 "40c17d19f39b5d7ea12c7f26c9330ec9d55c5f3e04c9a5ddfa13969486210798"
+
+      def install
+        bin.install "updatecli"
+      end
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/updatecli/updatecli/releases/download/v0.10.0/updatecli_Linux_armv6.tar.gz"
-      sha256 "c8cab5ebe4056257526d7a10ed5b3fef527af417d4692c3d3f9b486e2c9f2353"
-    end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/updatecli/updatecli/releases/download/v0.10.0/updatecli_Linux_arm64.tar.gz"
-      sha256 "5b801e18b0eaab558a417aee2bb762055c27268b51ef66ce9dba69882561d8ae"
-    end
-  end
+      url "https://github.com/updatecli/updatecli/releases/download/v0.11.0/updatecli_Linux_armv6.tar.gz"
+      sha256 "06183a0b81019a6797b490f95995a10b318a1882c83059d79818a31eb0d345c8"
 
-  def install
-    bin.install "updatecli"
+      def install
+        bin.install "updatecli"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/updatecli/updatecli/releases/download/v0.11.0/updatecli_Linux_x86_64.tar.gz"
+      sha256 "9d20bdc87c5ec7aba1b9b6d97f1e9ebe2bdbd512e344f428b4dad9d52491903e"
+
+      def install
+        bin.install "updatecli"
+      end
+    end
   end
 
   test do
