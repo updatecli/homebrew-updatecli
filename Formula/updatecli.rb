@@ -5,13 +5,13 @@
 class Updatecli < Formula
   desc "Updatecli is a declarative dependency management command line tool."
   homepage "https://updatecli.io/"
-  version "0.98.0"
+  version "0.99.0"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/updatecli/updatecli/releases/download/v0.98.0/updatecli_Darwin_x86_64.tar.gz"
-      sha256 "d872e8d6785fc92030d5910767406138ca533e49f88c64d78eed68289f4a89ad"
+      url "https://github.com/updatecli/updatecli/releases/download/v0.99.0/updatecli_Darwin_x86_64.tar.gz"
+      sha256 "ea2200da3725214bc538f50f4fb143a2ad25a64ed515d63af4bdc0d125d4e8e1"
 
       def install
         bin.install "updatecli"
@@ -22,8 +22,8 @@ class Updatecli < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/updatecli/updatecli/releases/download/v0.98.0/updatecli_Darwin_arm64.tar.gz"
-      sha256 "7f97725c31f128b4a6f9789e70457ab2a28b3b4f03ac9248f00f50d458eaa30e"
+      url "https://github.com/updatecli/updatecli/releases/download/v0.99.0/updatecli_Darwin_arm64.tar.gz"
+      sha256 "08edc8fefbd35348a7360367fb3c049d7fc9e81840e2fda7c493839efaf8fb3b"
 
       def install
         bin.install "updatecli"
@@ -36,46 +36,37 @@ class Updatecli < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/updatecli/updatecli/releases/download/v0.98.0/updatecli_Linux_x86_64.tar.gz"
-        sha256 "a7223081f39609e3de676877ee4437453eb8c8b32c8b88e52d999aba1d2fffc2"
-
-        def install
-          bin.install "updatecli"
-          bash_completion.install "completions/updatecli.bash" => "updatecli"
-          zsh_completion.install "completions/updatecli.zsh" => "_updatecli"
-          fish_completion.install "completions/updatecli.fish"
-          man1.install "manpages/updatecli.1.gz"
-        end
+    if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
+      url "https://github.com/updatecli/updatecli/releases/download/v0.99.0/updatecli_Linux_x86_64.tar.gz"
+      sha256 "bccfb0fe29a91c2072ea5808832412103edfe47e8e1d9b694646025396b605ad"
+      def install
+        bin.install "updatecli"
+        bash_completion.install "completions/updatecli.bash" => "updatecli"
+        zsh_completion.install "completions/updatecli.zsh" => "_updatecli"
+        fish_completion.install "completions/updatecli.fish"
+        man1.install "manpages/updatecli.1.gz"
       end
     end
-    if Hardware::CPU.arm?
-      if !Hardware::CPU.is_64_bit?
-        url "https://github.com/updatecli/updatecli/releases/download/v0.98.0/updatecli_Linux_arm.tar.gz"
-        sha256 "50acafd89590dea1a42e2889be008e1ed2b5f6880e84c32d5e7cf66ecffe301f"
-
-        def install
-          bin.install "updatecli"
-          bash_completion.install "completions/updatecli.bash" => "updatecli"
-          zsh_completion.install "completions/updatecli.zsh" => "_updatecli"
-          fish_completion.install "completions/updatecli.fish"
-          man1.install "manpages/updatecli.1.gz"
-        end
+    if Hardware::CPU.arm? and !Hardware::CPU.is_64_bit?
+      url "https://github.com/updatecli/updatecli/releases/download/v0.99.0/updatecli_Linux_arm.tar.gz"
+      sha256 "60322d9fbcdbdc062c282369a73e47880c285d6c113185ddabca89eab0f686ba"
+      def install
+        bin.install "updatecli"
+        bash_completion.install "completions/updatecli.bash" => "updatecli"
+        zsh_completion.install "completions/updatecli.zsh" => "_updatecli"
+        fish_completion.install "completions/updatecli.fish"
+        man1.install "manpages/updatecli.1.gz"
       end
     end
-    if Hardware::CPU.arm?
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/updatecli/updatecli/releases/download/v0.98.0/updatecli_Linux_arm64.tar.gz"
-        sha256 "d863bb56a8491c27586ce3d786f78226f200d16cbb41a7c2003faad79f227a9d"
-
-        def install
-          bin.install "updatecli"
-          bash_completion.install "completions/updatecli.bash" => "updatecli"
-          zsh_completion.install "completions/updatecli.zsh" => "_updatecli"
-          fish_completion.install "completions/updatecli.fish"
-          man1.install "manpages/updatecli.1.gz"
-        end
+    if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
+      url "https://github.com/updatecli/updatecli/releases/download/v0.99.0/updatecli_Linux_arm64.tar.gz"
+      sha256 "aa7cfe8ddd0f1bac7785ed6d3f778604daae7e0e5d0cb579e0933154f230940e"
+      def install
+        bin.install "updatecli"
+        bash_completion.install "completions/updatecli.bash" => "updatecli"
+        zsh_completion.install "completions/updatecli.zsh" => "_updatecli"
+        fish_completion.install "completions/updatecli.fish"
+        man1.install "manpages/updatecli.1.gz"
       end
     end
   end
