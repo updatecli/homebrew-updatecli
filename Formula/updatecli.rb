@@ -5,13 +5,13 @@
 class Updatecli < Formula
   desc "A declarative update policy engine."
   homepage "https://updatecli.io/"
-  version "0.120.0"
+  version "0.120.1"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/updatecli/updatecli/releases/download/v0.120.0/updatecli_Darwin_x86_64.tar.gz"
-      sha256 "ba9b8c4810e12675fab792d98d413b2a91ca5d10487299270fd38afc88f2ffe3"
+      url "https://github.com/updatecli/updatecli/releases/download/v0.120.1/updatecli_Darwin_x86_64.tar.gz"
+      sha256 "75f2d2c174c7d85086fd7982b1d35e8450ab24e44a0dfcc3050480a524a90ebd"
 
       define_method(:install) do
         bin.install "updatecli"
@@ -22,8 +22,8 @@ class Updatecli < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/updatecli/updatecli/releases/download/v0.120.0/updatecli_Darwin_arm64.tar.gz"
-      sha256 "decbcd4401d651707bc83a8fa9389a6dd46215c8591b07d46428a2c5b07262d0"
+      url "https://github.com/updatecli/updatecli/releases/download/v0.120.1/updatecli_Darwin_arm64.tar.gz"
+      sha256 "df4c9bdbe7c3003a4f382cee97a78080cb97189e6650d5ee85857de59057eb0d"
 
       define_method(:install) do
         bin.install "updatecli"
@@ -37,8 +37,8 @@ class Updatecli < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/updatecli/updatecli/releases/download/v0.120.0/updatecli_Linux_x86_64.tar.gz"
-      sha256 "7510576eeb950661aeccf23cc6fc7df5e2b32c105c181879ad4809bea019f551"
+      url "https://github.com/updatecli/updatecli/releases/download/v0.120.1/updatecli_Linux_x86_64.tar.gz"
+      sha256 "e2a17372253bcfcd0759ed6ddaaffef07f26ff2d5e8205d1cb1baa2cf4efab2c"
       define_method(:install) do
         bin.install "updatecli"
         bash_completion.install "completions/updatecli.bash" => "updatecli"
@@ -48,8 +48,8 @@ class Updatecli < Formula
       end
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/updatecli/updatecli/releases/download/v0.120.0/updatecli_Linux_arm.tar.gz"
-      sha256 "45f102eb89eeea2554284c66dd45b2885e41e0c094268d039e9077da4176c153"
+      url "https://github.com/updatecli/updatecli/releases/download/v0.120.1/updatecli_Linux_arm.tar.gz"
+      sha256 "dc0537fd28f2012a5a83efbe44776e944d39f29c636503850e26d6664a09da55"
       define_method(:install) do
         bin.install "updatecli"
         bash_completion.install "completions/updatecli.bash" => "updatecli"
@@ -59,8 +59,8 @@ class Updatecli < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/updatecli/updatecli/releases/download/v0.120.0/updatecli_Linux_arm64.tar.gz"
-      sha256 "c0890a9f8636c7c22585643e0ae148820161e76d9b66a728abe436428740ee2a"
+      url "https://github.com/updatecli/updatecli/releases/download/v0.120.1/updatecli_Linux_arm64.tar.gz"
+      sha256 "52fb346c469f4f3f7d084edccc8ad4ebf90cc8f68dfa4d924384b533904faa36"
       define_method(:install) do
         bin.install "updatecli"
         bash_completion.install "completions/updatecli.bash" => "updatecli"
